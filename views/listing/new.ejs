@@ -1,20 +1,67 @@
-<%- layout("/layout/boilerplate.ejs")%>
-<body>
+<%- layout("/layout/boilerplate.ejs") %>
+
+<div class="row">
+  <div class="col-8 offset-2">
     <h3>Create a new listing</h3>
-    <form action= "/listing" method="POST"> 
-        <input type="text" name ="listing[title]" placeholder="enter title">
-        <br>
-        <textarea name="listing[description]"  cols="30" rows="10" placeholder="description"></textarea>
-        <br>
-        <input type="text" name ="listing[image]" placeholder="enter your image url">
-        <br>
-        <input type="number" name ="listing[price]" placeholder="enter price">
-        <br>
-        <input type="text" name ="listing[country]" placeholder="country">
-        <br>
-        <input type="text" name ="listing[location]" placeholder="location">
-        <br>
-        <button>add</button>
+
+    <form action="/listing" method="POST" class="needs-validation" novalidate enctype="multipart/form-data">
+
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" placeholder="Enter Title" class="form-control" required>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea type="text" name="listing[description]" class="form-control "placeholder="Enter your Description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="inlineFormCustomSelect">Category</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" name="listing[category]">
+            <option selected>Choose...</option>
+            <option name="listing[Mountains]">Mountains</option>
+            <option name="listing[Trending]">Trending</option>
+            <option name="listing[Rooms]">Rooms</option>
+            <option name="listing[Iconic Cities]">Iconic Cities</option>
+            <option name="listing[Castle]">Castle</option>
+            <option name="listing[Amazing Pools]">Amazing Pools</option>
+            <option name="listing[Camping]">Camping</option>
+            <option name="listing[Farms]">Farms</option>
+            <option name="listing[Arctic]">Arctic</option>
+        </select>
+    </div>
+    
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input type="file" name="listing[image]" class="form-control" required>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" name="listing[price]" placeholder="Enter your price" class="form-control" required>
+          <div class="invalid-feedback">Please choose a valid price.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" name="listing[country]" placeholder="Enter your country" class="form-control" required>
+          <div class="invalid-feedback">Country should be valid.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" placeholder="Enter your location" class="form-control" required>
+        <div class="invalid-feedback">Location should be valid.</div>
+      </div>
+      <br>
+      <button class="btn btn-dark add-btn" type="submit">Add</button>
+
+
+      <br><br>
     </form>
-</body>
-</html>
+  </div>
+</div>

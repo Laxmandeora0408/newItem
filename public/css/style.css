@@ -1,6 +1,12 @@
 
 body {
     font-family: 'Josefin Sans', 'Noto Serif', 'Plus Jakarta Sans', 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
 }
 
 .navbar {
@@ -59,7 +65,7 @@ body {
 }
 
 .card {
-    border: none;
+    border: none !important;
     margin-bottom: 2rem !important;
     margin-left: 1rem !important;
 }
@@ -91,3 +97,86 @@ body {
     opacity: 0.2;
     background-color: #fff;
 }
+
+.add-btn{
+    background-color:#fe424d ;
+    border: none !important;
+    
+}
+.show-img{
+    height: 30vh;
+}
+.btns{
+    display: flex;
+
+}
+.show-card{
+    padding-left: 0;
+    padding-right: 0;;
+}
+
+.review-card{
+    border:1px solid black;
+    border-radius: 5%;
+}
+.review-content{
+    left:-1rem !important;
+}
+
+#filters{
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .filter{
+    text-align: center;
+    margin-right:2rem;
+    margin-top: 2rem;
+    opacity:0.7;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  .filter p{
+    font-size: 0.8rem;
+  }
+  .tax-info{
+    display: none;
+  }
+  .tax-toggle{
+    border:1px solid black;
+    border-radius:  1rem ;
+    height: 3rem;
+    padding:1rem;
+    padding-left: 2rem;
+    margin-left: 5rem;
+    display: flex;
+    align-items: center;
+
+  }
+  .filter a{
+    color: black;
+  }
+
+  .btn-search{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1.4rem 0 1rem;
+  }
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i{
+    margin:0.5rem;
+  }
+
+  .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    text-align: center;
+  }
+

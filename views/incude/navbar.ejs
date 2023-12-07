@@ -1,14 +1,43 @@
-<nav class="navbar navbar-expand-md navbar-light bg-body-light border-bottom sticky-top">
-    <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="/listing">All Listings</a>
-        <a class="nav-link" href="/listing/new">Add new Listing</a>
-        <a class="nav-link disabled" href="/llisting/new">Disabled</a>
-      </div>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom sticky-top">
+  <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="navbar-nav"><li class="nav-item"> <a class="nav-link" href="/listing">Explore</a></li>
+     
     </div>
-  </nav>
+    <div class= "navbar-nav ml-auto" id="formSearch">
+      <form class="form-inline search-form" method="get" action="/search">
+        <input class="form-control mr-sm-2 search-inp" name = "searchDestination" id ="searchDestination" type="search" placeholder="Search Destination" aria-label="Search">
+        <button class="btn btn-search my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+      </form>
+    </div>
+    <div class="navbar-nav ml-auto">
+      <a class="nav-link nav-item" href="/listing/new">Airbnb your home</a>
+      <% if(!currUser) {%>
+      <a class="nav-link nav-item" href="/signup"><b>SignUp</b></a>
+      <a class="nav-link nav-item" href="/login"><b>Login</b></a>
+      <% } %>
+
+      <% if(currUser) {%>
+      <a class="nav-link" href="/logout">LogOut</a>
+      <% } %>
+    </div>
+  </div>
+</nav>
+<!-- <script>
+ document.getElementById('formSearch').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const searchDestination = document.getElementById('searchDestination').value;
+    fetch(`/search?query=${searchDestination}`)
+        const listings=  response.json()
+        .then(data => {
+            // Handle the search results returned from the server
+            console.log(data);
+        })
+        .catch(error => console.error(error));
+});
+
+ </script> -->
